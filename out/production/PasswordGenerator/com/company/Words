@@ -1,0 +1,58 @@
+package com.company;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Random;
+
+class Words {
+    List<String> VERBS_LIST = new ArrayList();
+    List<String> NOUNS_LIST = new ArrayList();
+    List<String> ADJECTIVES_LIST = new ArrayList();
+    List<String> ADVERBS_LIST = new ArrayList();
+
+    public Words() {
+        this.VERBS_LIST.add("runs");
+        this.VERBS_LIST.add("combs");
+        this.VERBS_LIST.add("smells");
+        this.VERBS_LIST.add("eats");
+        this.VERBS_LIST.add("writes");
+        this.VERBS_LIST.add("listens");
+        this.VERBS_LIST.add("complains");
+        this.NOUNS_LIST.add("dog");
+        this.NOUNS_LIST.add("horse");
+        this.NOUNS_LIST.add("fox");
+        this.NOUNS_LIST.add("man");
+        this.NOUNS_LIST.add("woman");
+        this.NOUNS_LIST.add("bat");
+        this.NOUNS_LIST.add("watch");
+        this.ADJECTIVES_LIST.add("quickly");
+        this.ADJECTIVES_LIST.add("greatly");
+        this.ADJECTIVES_LIST.add("spectacularly");
+        this.ADJECTIVES_LIST.add("awesomely");
+        this.ADJECTIVES_LIST.add("terribly");
+        this.ADJECTIVES_LIST.add("stupendously");
+        this.ADVERBS_LIST.add("daily");
+        this.ADVERBS_LIST.add("everywhere");
+        this.ADVERBS_LIST.add("absentmindedly");
+        this.ADVERBS_LIST.add("competitively");
+        this.ADVERBS_LIST.add("afterwards");
+        this.ADVERBS_LIST.add("carefully");
+        this.ADVERBS_LIST.add("savagely");
+        this.ADVERBS_LIST.add("remorsefully");
+    }
+
+    public String capitalize(String str) {
+        return str != null && !str.isEmpty() ? str.substring(0, 1).toUpperCase() + str.substring(1) : str;
+    }
+
+    public String generatePassword() {
+        Random r = new Random();
+        int randomVerb = r.nextInt(this.VERBS_LIST.size());
+        int randomNoun = r.nextInt(this.NOUNS_LIST.size());
+        int randomAdjective = r.nextInt(this.ADJECTIVES_LIST.size());
+        int randomAdverb = r.nextInt(this.ADVERBS_LIST.size());
+        String[] var10000 = new String[]{(String)this.NOUNS_LIST.get(randomNoun), (String)this.VERBS_LIST.get(randomVerb), (String)this.ADJECTIVES_LIST.get(randomAdjective), (String)this.ADVERBS_LIST.get(randomAdverb)};
+        String randomPassword = this.capitalize((String)this.NOUNS_LIST.get(randomNoun)) + this.capitalize((String)this.VERBS_LIST.get(randomVerb)) + this.capitalize((String)this.ADJECTIVES_LIST.get(randomAdjective)) + this.capitalize((String)this.ADVERBS_LIST.get(randomAdverb));
+        return randomPassword;
+    }
+}
